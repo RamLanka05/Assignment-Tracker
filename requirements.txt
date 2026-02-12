@@ -1,0 +1,32 @@
+# Core dependencies for web scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+selenium>=4.15.0
+lxml>=4.9.0
+
+# API integrations
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+notion-client>=2.2.0
+todoist-api-python>=2.1.0
+
+# Data processing
+pandas>=2.1.0
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# Configuration
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Scheduling (optional)
+schedule>=1.2.0
+APScheduler>=3.10.0
+
+# Logging and utilities
+colorlog>=6.7.0
+tqdm>=4.66.0
+
+# Web automation (if using Selenium)
+webdriver-manager>=4.0.0
