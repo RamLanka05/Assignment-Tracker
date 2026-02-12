@@ -1,0 +1,86 @@
+# Secrets and credentials
+secrets/
+tokens/
+credentials/
+*.env
+.env
+.env.local
+
+# Personal configurations
+my_config.json
+config.local.json
+
+# Output data
+data/
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Selenium
+geckodriver.log
+chromedriver.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# API tokens and keys
+*token*.txt
+*secret*.txt
+*password*.txt
+*credentials*.json
+!template_data/scraper_config.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Node modules (if using JavaScript)
+node_modules/
+package-lock.json
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# OS files
+Thumbs.db
+.DS_Store

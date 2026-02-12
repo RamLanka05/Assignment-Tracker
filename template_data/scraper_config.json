@@ -1,0 +1,226 @@
+{
+  "description": "Scraper configuration template",
+  "scraper_settings": {
+    "run_frequency": "every_6_hours",
+    "max_retries": 3,
+    "timeout_seconds": 30,
+    "parallel_scraping": true,
+    "max_parallel_jobs": 5
+  },
+  "platforms": [
+    {
+      "platform_type": "Canvas",
+      "enabled": true,
+      "credentials": {
+        "auth_type": "oauth2",
+        "client_id": "YOUR_CANVAS_CLIENT_ID",
+        "client_secret": "YOUR_CANVAS_CLIENT_SECRET",
+        "redirect_uri": "http://localhost:8080/callback",
+        "token_file": "tokens/canvas_token.json"
+      },
+      "base_url": "https://canvas.university.edu",
+      "api_version": "v1",
+      "endpoints": {
+        "courses": "/api/v1/courses",
+        "assignments": "/api/v1/courses/{course_id}/assignments",
+        "submissions": "/api/v1/courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}"
+      },
+      "scraping_options": {
+        "fetch_upcoming_only": false,
+        "include_completed": true,
+        "days_ahead": 90
+      }
+    },
+    {
+      "platform_type": "Moodle",
+      "enabled": true,
+      "credentials": {
+        "auth_type": "token",
+        "token_file": "tokens/moodle_token.json"
+      },
+      "base_url": "https://moodle.university.edu",
+      "endpoints": {
+        "courses": "/webservice/rest/server.php?wsfunction=core_course_get_courses",
+        "assignments": "/webservice/rest/server.php?wsfunction=mod_assign_get_assignments"
+      },
+      "scraping_options": {
+        "fetch_upcoming_only": false,
+        "include_completed": true
+      }
+    },
+    {
+      "platform_type": "Blackboard",
+      "enabled": true,
+      "credentials": {
+        "auth_type": "session_cookie",
+        "username": "YOUR_USERNAME",
+        "password_file": "secrets/blackboard_password.txt"
+      },
+      "base_url": "https://blackboard.university.edu",
+      "login_url": "/webapps/login",
+      "scraping_options": {
+        "use_selenium": true,
+        "headless": true,
+        "wait_time": 5
+      }
+    },
+    {
+      "platform_type": "Custom",
+      "enabled": true,
+      "credentials": {
+        "auth_type": "basic_auth",
+        "username": "YOUR_USERNAME",
+        "password_file": "secrets/custom_password.txt"
+      },
+      "base_url": "https://dept.university.edu/courses",
+      "scraping_options": {
+        "use_selenium": false,
+        "custom_parser": "parsers/custom_parser.py"
+      }
+    }
+  ],
+  "output_destinations": [
+    {
+      "type": "google_sheets",
+      "enabled": true,
+      "config": {
+        "credentials_file": "credentials/google_sheets_credentials.json",
+        "spreadsheet_id": "YOUR_SPREADSHEET_ID",
+        "sheet_name": "Current Assignments",
+        "update_mode": "replace"
+      }
+    },
+    {
+      "type": "notion",
+      "enabled": true,
+      "config": {
+        "api_token_file": "tokens/notion_token.txt",
+        "database_id": "YOUR_DATABASE_ID",
+        "update_mode": "sync"
+      }
+    },
+    {
+      "type": "todoist",
+      "enabled": false,
+      "config": {
+        "api_token_file": "tokens/todoist_token.txt",
+        "project_id": "YOUR_PROJECT_ID",
+        "label_prefix": "class_"
+      }
+    },
+    {
+      "type": "microsoft_todo",
+      "enabled": false,
+      "config": {
+        "client_id": "YOUR_CLIENT_ID",
+        "client_secret_file": "secrets/ms_todo_secret.txt",
+        "list_id": "YOUR_LIST_ID"
+      }
+    },
+    {
+      "type": "google_calendar",
+      "enabled": false,
+      "config": {
+        "credentials_file": "credentials/google_calendar_credentials.json",
+        "calendar_id": "primary",
+        "event_prefix": "[Assignment]"
+      }
+    },
+    {
+      "type": "json_file",
+      "enabled": true,
+      "config": {
+        "output_path": "data/assignments_output.json",
+        "pretty_print": true
+      }
+    }
+  ],
+  "notifications": {
+    "enabled": true,
+    "channels": [
+      {
+        "type": "email",
+        "enabled": false,
+        "config": {
+          "smtp_server": "smtp.gmail.com",
+          "smtp_port": 587,
+          "from_email": "your.email@gmail.com",
+          "to_email": "your.email@gmail.com",
+          "password_file": "secrets/email_password.txt"
+        },
+        "triggers": [
+          "new_assignment",
+          "due_within_24_hours",
+          "scraper_error"
+        ]
+      },
+      {
+        "type": "discord",
+        "enabled": false,
+        "config": {
+          "webhook_url_file": "secrets/discord_webhook.txt"
+        },
+        "triggers": [
+          "new_assignment",
+          "due_within_24_hours"
+        ]
+      },
+      {
+        "type": "slack",
+        "enabled": false,
+        "config": {
+          "webhook_url_file": "secrets/slack_webhook.txt"
+        },
+        "triggers": [
+          "new_assignment"
+        ]
+      }
+    ]
+  },
+  "data_processing": {
+    "deduplication": {
+      "enabled": true,
+      "match_fields": ["assignment_id", "class_code", "title"]
+    },
+    "priority_assignment": {
+      "enabled": true,
+      "rules": [
+        {
+          "condition": "type == 'exam'",
+          "priority": "critical"
+        },
+        {
+          "condition": "due_date <= now + 2 days",
+          "priority": "high"
+        },
+        {
+          "condition": "points_possible >= 100",
+          "priority": "high"
+        },
+        {
+          "condition": "type == 'project'",
+          "priority": "critical"
+        }
+      ]
+    },
+    "time_estimation": {
+      "enabled": true,
+      "default_hours": {
+        "programming": 3,
+        "quiz": 1,
+        "homework": 2,
+        "exam": 10,
+        "essay": 8,
+        "lab": 4,
+        "project": 20,
+        "problem_set": 3
+      }
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "log_file": "logs/scraper.log",
+    "max_file_size_mb": 10,
+    "backup_count": 5
+  }
+}
