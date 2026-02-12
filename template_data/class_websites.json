@@ -1,0 +1,77 @@
+{
+  "description": "Template data for different class website structures",
+  "platforms": [
+    {
+      "platform_type": "Canvas",
+      "platform_name": "Canvas LMS",
+      "base_url": "https://canvas.university.edu",
+      "auth_method": "oauth2",
+      "classes": [
+        {
+          "class_id": "12345",
+          "class_code": "CS101",
+          "class_name": "Introduction to Computer Science",
+          "instructor": "Dr. Jane Smith",
+          "semester": "Fall 2024",
+          "assignment_url": "https://canvas.university.edu/courses/12345/assignments"
+        },
+        {
+          "class_id": "12346",
+          "class_code": "MATH201",
+          "class_name": "Calculus II",
+          "instructor": "Prof. John Doe",
+          "semester": "Fall 2024",
+          "assignment_url": "https://canvas.university.edu/courses/12346/assignments"
+        }
+      ]
+    },
+    {
+      "platform_type": "Moodle",
+      "platform_name": "Moodle Learning Platform",
+      "base_url": "https://moodle.university.edu",
+      "auth_method": "session_cookie",
+      "classes": [
+        {
+          "class_id": "543",
+          "class_code": "ENG102",
+          "class_name": "English Composition",
+          "instructor": "Dr. Emily Brown",
+          "semester": "Fall 2024",
+          "assignment_url": "https://moodle.university.edu/course/view.php?id=543"
+        }
+      ]
+    },
+    {
+      "platform_type": "Blackboard",
+      "platform_name": "Blackboard Learn",
+      "base_url": "https://blackboard.university.edu",
+      "auth_method": "saml",
+      "classes": [
+        {
+          "class_id": "bb_101",
+          "class_code": "PHYS301",
+          "class_name": "Modern Physics",
+          "instructor": "Dr. Robert Chen",
+          "semester": "Fall 2024",
+          "assignment_url": "https://blackboard.university.edu/webapps/blackboard/content/listContent.jsp?course_id=bb_101"
+        }
+      ]
+    },
+    {
+      "platform_type": "Custom",
+      "platform_name": "Department Website",
+      "base_url": "https://dept.university.edu/courses",
+      "auth_method": "basic_auth",
+      "classes": [
+        {
+          "class_id": "chem202",
+          "class_code": "CHEM202",
+          "class_name": "Organic Chemistry",
+          "instructor": "Prof. Sarah Johnson",
+          "semester": "Fall 2024",
+          "assignment_url": "https://dept.university.edu/courses/chem202/assignments"
+        }
+      ]
+    }
+  ]
+}

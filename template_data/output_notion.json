@@ -1,0 +1,385 @@
+{
+  "description": "Template for Notion export format",
+  "database_name": "Assignments Database",
+  "database_properties": {
+    "Assignment ID": {
+      "type": "title"
+    },
+    "Title": {
+      "type": "rich_text"
+    },
+    "Class": {
+      "type": "select",
+      "options": ["CS101", "MATH201", "ENG102", "PHYS301", "CHEM202"]
+    },
+    "Type": {
+      "type": "select",
+      "options": ["programming", "quiz", "homework", "exam", "essay", "lab", "project", "problem_set"]
+    },
+    "Status": {
+      "type": "select",
+      "options": ["assigned", "in_progress", "submitted", "graded"]
+    },
+    "Priority": {
+      "type": "select",
+      "options": ["low", "medium", "high", "critical"]
+    },
+    "Assigned Date": {
+      "type": "date"
+    },
+    "Due Date": {
+      "type": "date"
+    },
+    "Points": {
+      "type": "number"
+    },
+    "Estimated Hours": {
+      "type": "number"
+    },
+    "URL": {
+      "type": "url"
+    },
+    "Tags": {
+      "type": "multi_select"
+    }
+  },
+  "pages": [
+    {
+      "page_id": "page_001",
+      "properties": {
+        "Assignment ID": "assign_001",
+        "Title": "Programming Assignment 1: Hello World",
+        "Class": "CS101",
+        "Type": "programming",
+        "Status": "assigned",
+        "Priority": "medium",
+        "Assigned Date": "2024-09-01",
+        "Due Date": "2024-09-08",
+        "Points": 100,
+        "Estimated Hours": 2,
+        "URL": "https://canvas.university.edu/courses/12345/assignments/assign_001",
+        "Tags": ["python", "intro", "week1"]
+      },
+      "content": [
+        {
+          "type": "heading_2",
+          "text": "Description"
+        },
+        {
+          "type": "paragraph",
+          "text": "Write a program that prints 'Hello, World!' in Python"
+        },
+        {
+          "type": "heading_2",
+          "text": "Checklist"
+        },
+        {
+          "type": "to_do",
+          "text": "Set up Python environment",
+          "checked": true
+        },
+        {
+          "type": "to_do",
+          "text": "Write the program",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Test the program",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Submit to Canvas",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "page_id": "page_002",
+      "properties": {
+        "Assignment ID": "assign_002",
+        "Title": "Quiz 1: Python Basics",
+        "Class": "CS101",
+        "Type": "quiz",
+        "Status": "assigned",
+        "Priority": "high",
+        "Assigned Date": "2024-09-05",
+        "Due Date": "2024-09-10",
+        "Points": 50,
+        "Estimated Hours": 1,
+        "URL": "https://canvas.university.edu/courses/12345/quizzes/quiz_001",
+        "Tags": ["quiz", "python", "chapters1-3"]
+      },
+      "content": [
+        {
+          "type": "heading_2",
+          "text": "Description"
+        },
+        {
+          "type": "paragraph",
+          "text": "Multiple choice quiz covering chapters 1-3"
+        },
+        {
+          "type": "heading_2",
+          "text": "Study Checklist"
+        },
+        {
+          "type": "to_do",
+          "text": "Review Chapter 1: Introduction",
+          "checked": true
+        },
+        {
+          "type": "to_do",
+          "text": "Review Chapter 2: Variables and Data Types",
+          "checked": true
+        },
+        {
+          "type": "to_do",
+          "text": "Review Chapter 3: Control Flow",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Take practice quiz",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "page_id": "page_003",
+      "properties": {
+        "Assignment ID": "assign_005",
+        "Title": "Essay 1: Narrative Writing",
+        "Class": "ENG102",
+        "Type": "essay",
+        "Status": "in_progress",
+        "Priority": "high",
+        "Assigned Date": "2024-08-28",
+        "Due Date": "2024-09-15",
+        "Points": 150,
+        "Estimated Hours": 12,
+        "URL": "https://moodle.university.edu/mod/assign/view.php?id=assign_005",
+        "Tags": ["essay", "writing", "narrative"]
+      },
+      "content": [
+        {
+          "type": "heading_2",
+          "text": "Description"
+        },
+        {
+          "type": "paragraph",
+          "text": "Write a 5-page narrative essay on a personal experience"
+        },
+        {
+          "type": "callout",
+          "emoji": "📝",
+          "text": "Current Progress: 800 words out of ~1250 needed. Last saved: 2024-09-07 15:30"
+        },
+        {
+          "type": "heading_2",
+          "text": "Writing Checklist"
+        },
+        {
+          "type": "to_do",
+          "text": "Brainstorm topic ideas",
+          "checked": true
+        },
+        {
+          "type": "to_do",
+          "text": "Create outline",
+          "checked": true
+        },
+        {
+          "type": "to_do",
+          "text": "Write first draft",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Peer review",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Revise and edit",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Final proofread",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Submit",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "page_id": "page_004",
+      "properties": {
+        "Assignment ID": "assign_008",
+        "Title": "Group Project: Weather App",
+        "Class": "CS101",
+        "Type": "project",
+        "Status": "assigned",
+        "Priority": "critical",
+        "Assigned Date": "2024-09-01",
+        "Due Date": "2024-11-30",
+        "Points": 300,
+        "Estimated Hours": 40,
+        "URL": "https://canvas.university.edu/courses/12345/assignments/assign_008",
+        "Tags": ["project", "group-work", "python", "api"]
+      },
+      "content": [
+        {
+          "type": "heading_2",
+          "text": "Description"
+        },
+        {
+          "type": "paragraph",
+          "text": "Build a weather application using Python and APIs"
+        },
+        {
+          "type": "heading_2",
+          "text": "Team Members"
+        },
+        {
+          "type": "bulleted_list_item",
+          "text": "Alice Johnson"
+        },
+        {
+          "type": "bulleted_list_item",
+          "text": "Bob Smith"
+        },
+        {
+          "type": "bulleted_list_item",
+          "text": "Charlie Brown"
+        },
+        {
+          "type": "heading_2",
+          "text": "Milestones"
+        },
+        {
+          "type": "heading_3",
+          "text": "Milestone 1: Project Proposal (Due: 2024-09-20)"
+        },
+        {
+          "type": "to_do",
+          "text": "Team meeting to discuss ideas",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Write project proposal",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Submit proposal",
+          "checked": false
+        },
+        {
+          "type": "heading_3",
+          "text": "Milestone 2: Prototype Demo (Due: 2024-10-25)"
+        },
+        {
+          "type": "to_do",
+          "text": "Set up development environment",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Implement basic UI",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Integrate weather API",
+          "checked": false
+        },
+        {
+          "type": "heading_3",
+          "text": "Milestone 3: Final Submission (Due: 2024-11-30)"
+        },
+        {
+          "type": "to_do",
+          "text": "Complete all features",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Write documentation",
+          "checked": false
+        },
+        {
+          "type": "to_do",
+          "text": "Test application",
+          "checked": false
+        }
+      ]
+    }
+  ],
+  "views": [
+    {
+      "view_name": "All Assignments",
+      "type": "table",
+      "filter": {},
+      "sort": [
+        {
+          "property": "Due Date",
+          "direction": "ascending"
+        }
+      ]
+    },
+    {
+      "view_name": "This Week",
+      "type": "table",
+      "filter": {
+        "and": [
+          {
+            "property": "Due Date",
+            "date": {
+              "next_week": {}
+            }
+          },
+          {
+            "property": "Status",
+            "select": {
+              "does_not_equal": "submitted"
+            }
+          }
+        ]
+      },
+      "sort": [
+        {
+          "property": "Priority",
+          "direction": "descending"
+        }
+      ]
+    },
+    {
+      "view_name": "By Class",
+      "type": "board",
+      "group_by": "Class",
+      "filter": {
+        "property": "Status",
+        "select": {
+          "does_not_equal": "submitted"
+        }
+      }
+    },
+    {
+      "view_name": "Calendar",
+      "type": "calendar",
+      "calendar_by": "Due Date"
+    }
+  ],
+  "notion_api_config": {
+    "api_token": "YOUR_NOTION_INTEGRATION_TOKEN",
+    "database_id": "YOUR_DATABASE_ID",
+    "version": "2022-06-28"
+  }
+}

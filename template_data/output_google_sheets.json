@@ -1,0 +1,161 @@
+{
+  "description": "Template for Google Sheets export format",
+  "spreadsheet_name": "My Assignments Tracker",
+  "sheet_tabs": [
+    {
+      "tab_name": "Current Assignments",
+      "headers": [
+        "Assignment ID",
+        "Class Code",
+        "Class Name",
+        "Assignment Title",
+        "Type",
+        "Status",
+        "Assigned Date",
+        "Due Date",
+        "Days Until Due",
+        "Priority",
+        "Points Possible",
+        "Estimated Hours",
+        "URL"
+      ],
+      "rows": [
+        [
+          "assign_001",
+          "CS101",
+          "Introduction to Computer Science",
+          "Programming Assignment 1: Hello World",
+          "programming",
+          "assigned",
+          "2024-09-01",
+          "2024-09-08",
+          "1",
+          "medium",
+          "100",
+          "2",
+          "https://canvas.university.edu/courses/12345/assignments/assign_001"
+        ],
+        [
+          "assign_002",
+          "CS101",
+          "Introduction to Computer Science",
+          "Quiz 1: Python Basics",
+          "quiz",
+          "assigned",
+          "2024-09-05",
+          "2024-09-10",
+          "3",
+          "high",
+          "50",
+          "1",
+          "https://canvas.university.edu/courses/12345/quizzes/quiz_001"
+        ],
+        [
+          "assign_003",
+          "MATH201",
+          "Calculus II",
+          "Homework Set 1: Integration Techniques",
+          "homework",
+          "assigned",
+          "2024-09-02",
+          "2024-09-09",
+          "2",
+          "medium",
+          "50",
+          "4",
+          "https://canvas.university.edu/courses/12346/assignments/assign_003"
+        ]
+      ],
+      "formatting": {
+        "header_row": {
+          "background_color": "#4285F4",
+          "font_color": "#FFFFFF",
+          "font_weight": "bold"
+        },
+        "conditional_formatting": [
+          {
+            "condition": "Days Until Due <= 1",
+            "background_color": "#FF0000",
+            "font_color": "#FFFFFF"
+          },
+          {
+            "condition": "Days Until Due <= 3",
+            "background_color": "#FFA500"
+          },
+          {
+            "condition": "Priority == 'critical'",
+            "background_color": "#FFB6C1"
+          }
+        ]
+      }
+    },
+    {
+      "tab_name": "Completed Assignments",
+      "headers": [
+        "Assignment ID",
+        "Class Code",
+        "Assignment Title",
+        "Due Date",
+        "Submitted Date",
+        "Points Earned",
+        "Points Possible",
+        "Grade"
+      ],
+      "rows": [
+        [
+          "assign_007",
+          "CHEM202",
+          "Problem Set 2: Stereochemistry",
+          "2024-09-06",
+          "2024-09-05",
+          "72",
+          "75",
+          "96%"
+        ]
+      ]
+    },
+    {
+      "tab_name": "Calendar View",
+      "description": "Weekly calendar view of assignments",
+      "headers": [
+        "Week",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "rows": [
+        [
+          "Week 1 (Sep 1-7)",
+          "CS101: Programming Assignment 1",
+          "",
+          "",
+          "",
+          "",
+          "CHEM202: Problem Set 2",
+          ""
+        ],
+        [
+          "Week 2 (Sep 8-14)",
+          "",
+          "MATH201: Homework Set 1",
+          "CS101: Quiz 1",
+          "",
+          "",
+          "",
+          "ENG102: Essay 1"
+        ]
+      ]
+    }
+  ],
+  "google_sheets_api_config": {
+    "spreadsheet_id": "YOUR_SPREADSHEET_ID",
+    "credentials_file": "path/to/credentials.json",
+    "scopes": [
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  }
+}
